@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import Observation
 
-public final class Router<T: Destination>: ObservableObject, Identifiable {
+@Observable
+public final class Router<T: Destination>: Identifiable {
 
     public let initialDestination: T
 
-    public weak var parent: Router?
+    @ObservationIgnored public weak var parent: Router?
 
-    @Published public var path: [T] = []
-    @Published public var sheetRouter: Router?
-    @Published public var fullScreenRouter: Router?
+    public var path: [T] = []
+    public var sheetRouter: Router?
+    public var fullScreenRouter: Router?
 
     public init(initialDestination: T) {
         self.initialDestination = initialDestination

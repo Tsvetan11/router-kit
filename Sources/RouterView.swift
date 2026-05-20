@@ -9,8 +9,8 @@ import SwiftUI
 
 public struct RouterView<T: Destination>: View {
 
-    @ObservedObject public var router: Router<T>
-    
+    @Bindable public var router: Router<T>
+
     public init(router: Router<T>) {
         self.router = router
     }
